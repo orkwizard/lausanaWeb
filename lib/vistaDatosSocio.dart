@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:convert';
+
 import 'package:clipboard/clipboard.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +12,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import 'conecciones/conecciones.dart';
 import 'modelos/UsuarioModel.dart';
+import 'package:http/http.dart' as http;
 import 'modelos/fraccionamientos.dart';
 
 class VistaDatosSocio extends StatefulWidget {
@@ -260,24 +264,27 @@ class _VistaDatosSocioState extends State<VistaDatosSocio> {
   Future<Fraccionamiento?> getFraccionamientoId(String id) async {
     //var snap = _databaseServices.getFracionamientosById(usuario.idFraccionamiento);
 
-    Fraccionamiento _fracc = new Fraccionamiento();
+    Fraccionamiento fraccionamiento = new Fraccionamiento();
 
     if (id == "") {
       print("Double tap");
       return null;
     }
+    final String _url =
+        'https://lausana-6b050-default-rtdb.firebaseio.com/configuracion/fraccionamiento/${id}.json';
 
-    DocumentSnapshot snaps =
-        await db.collection('fraccionamientos').doc(id).get();
-    print(snaps.data());
-
-    if (snaps.exists) {
-      print("dentro");
-      Map<String, dynamic> mapa = snaps.data() as Map<String, dynamic>;
-      _fracc = Fraccionamiento.fromJson(mapa);
-      return _fracc;
+    try {
+      final response = await http.get(Uri.parse(_url));
+      //print("Response***"+response.request.toString());
+      final decodedData = jsonDecode(response.body);
+      //print("CONFIGURACIÓN " + decodedData.toString());
+      fraccionamiento = Fraccionamiento.fromJson(decodedData);
+      return fraccionamiento;
+    } on TimeoutException catch (exception) {
+      print(
+          'Error al cargar la configuracion. Tiempo de espera exedido: ${exception.message}');
+    } catch (exception) {
+      print("Erro inesperado al cargar la configuración: $exception");
     }
-
-    //print(usuarioBloc.miFraccionamiento.color?.r);
   }
 }
