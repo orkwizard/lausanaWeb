@@ -93,7 +93,7 @@ class _VistaUrlState extends State<VistaUrl> {
               height: 30,
             ),
             QrImage(
-              data: this.widget.qrCode.toString(),
+              data: invitado.nid.toString(),
               version: QrVersions.auto,
               size: 200,
             ),

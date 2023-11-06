@@ -16,6 +16,8 @@ class Invitado {
   String? domicilio;
   String? fotoPlacaUrl;
   String? idResidente;
+  int? nid;
+  int? nidResidente;
   String? acompanantes;
   String? tipoVisita;
   DateTime? fechaHoraAcceso;
@@ -34,6 +36,8 @@ class Invitado {
       this.domicilio,
       this.email,
       this.fotoId,
+      this.nid,
+      this.nidResidente,
       this.fotoPlaca,
       this.fotoIdUrl,
       this.fotoPlacaUrl,
@@ -57,6 +61,8 @@ class Invitado {
         'email': email,
         'idEvento': idEvento,
         'referencia': domicilio,
+        'nid': nid,
+        'nidResidente': nidResidente,
         //'fotoId': fotoId,
         //'fotoPlaca': fotoPlaca,
         'fotoIdUrl': fotoIdUrl,
@@ -133,6 +139,8 @@ class Invitado {
         fotoPlacaUrl: data['fotoPlacaUrl'] ?? null,
         idResidente: data['idResidente'] ?? '',
         placas: data['placas'] ?? '',
+        nid: data['nid'] ?? 0,
+        nidResidente: data['nidResidente'] ?? 0,
         acompanantes:
             data["acompanantes"] != null ? data["acompanantes"].toString() : "",
         nombreResidente: data['nombreResidente'] ?? '',
