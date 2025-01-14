@@ -1,0 +1,8 @@
+{
+  "dart.flutterSdkPath": "C:/Users/scabr/fvm/versions/2.10.5",
+//  "dart.flutterRunAdditionalArgs": [
+//     "--no-sound-null-safety",
+//     "flutter config --no-analytics"
+//   ],
+//   "java.configuration.updateBuildConfiguration": "interactive"
+}

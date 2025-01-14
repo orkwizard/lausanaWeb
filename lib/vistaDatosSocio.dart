@@ -110,7 +110,7 @@ class _VistaDatosSocioState extends State<VistaDatosSocio> {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 40),
               child: Text(
-                "Si no tienes la aplicación móvil Cumbres Residenciales, puedes descargarla en los siguientes sitios:",
+                "Si no tienes la aplicación móvil, puedes descargarla en los siguientes sitios:",
                 textAlign: TextAlign.center,
               ),
             ),
@@ -122,27 +122,27 @@ class _VistaDatosSocioState extends State<VistaDatosSocio> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  // Container(
+                  //   child: InkWell(
+                  //     onTap: () {
+                  //       _launchUrl(
+                  //           "https://play.google.com/store/apps/details?id=com.commune.communeapp");
+                  //     },
+                  //     child: Icon(
+                  //       FontAwesomeIcons.googlePlay,
+                  //       size: 30,
+                  //       color: Colors.blue[800],
+                  //     ),
+                  //   ),
+                  // ),
+                  // SizedBox(
+                  //   width: 50,
+                  // ),
                   Container(
                     child: InkWell(
                       onTap: () {
                         _launchUrl(
-                            "https://play.google.com/store/apps/details?id=com.commune.communeapp");
-                      },
-                      child: Icon(
-                        FontAwesomeIcons.googlePlay,
-                        size: 30,
-                        color: Colors.blue[800],
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 50,
-                  ),
-                  Container(
-                    child: InkWell(
-                      onTap: () {
-                        _launchUrl(
-                            "https://apps.apple.com/mx/app/cumbres-residencial/id1555505159");
+                            "https://apps.apple.com/mx/app/lausana-residencial/id1666343593 ");
                       },
                       child: Icon(FontAwesomeIcons.appStore,
                           size: 30, color: Colors.blue[800]),
